@@ -114,6 +114,10 @@ function parse(tag, timestamp, record)
         end
       end
     end
+    if label and value then
+      -- unquoted values do not have an end quote to tigger saving the pair, so do it now
+      fieldsnew[label]=value
+    end
     if fieldsnew then
       -- save all key/value pairs under this key
       record["fieldsnew"]=fieldsnew
